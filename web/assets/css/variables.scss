@@ -1,0 +1,136 @@
+/* sass 语法 S */
+$white:    #ffffff !default;
+$black:    #000000 !default;
+$primary:  #409eff !default;
+
+$colors: () !default;
+$colors: map-merge(
+  (
+    "white":              $white,
+    "black":              $black,
+    "black-1":            mix($black, $white, 80%),
+    "black-2":            mix($black, $white, 50%),
+    "black-3":            mix($black, $white, 20%),
+    "black-rgba-1":       rgba($black, 0.8),
+    "black-rgba-2":       rgba($black, 0.5),
+    "primary":            $primary,
+  ),
+  $colors
+);
+
+
+/* css 语法 S */
+:root {
+  // 白天模式
+	color-scheme: light;
+
+  /* 初始化变量 S */
+	// 颜色
+	/*
+  --lqsblog-color-white: #ffffff;
+	--lqsblog-color-black: #000000;
+  --lqsblog-color-black-1: #333333;
+  --lqsblog-color-black-2: #666666;
+  --lqsblog-color-primary: $primary;
+  // 有下面循环代替
+  */
+  @each $color, $value in $colors {
+    --lqsblog-color-#{$color}: #{$value};
+  }
+  /*
+    sass issues：https://github.com/sass/sass/issues/2383#issuecomment-336349172
+    在:root中以下写法不好使：
+      --lqsblog-color-primary: $primary;
+    需要这样写：
+      --lqsblog-color-primary: #{inspect($primary)};
+   */
+
+
+  // 颜色 - 主题模式
+  --lqsblog-color-scheme-1: #515c6b; // 金属蓝
+
+
+  // 颜色 - 12个月
+  --lqsblog-color-month-1: #c6ddf1;
+  --lqsblog-color-month-2: #c00000;
+  --lqsblog-color-month-3: #f5bdd1;
+  --lqsblog-color-month-4: #f0f011;
+  --lqsblog-color-month-5: #92d050;
+  --lqsblog-color-month-6: #95b3d7;
+  --lqsblog-color-month-7: #f5bdd1;
+  --lqsblog-color-month-8: #b4d966;
+  --lqsblog-color-month-9: #fac08f;
+  --lqsblog-color-month-10: #f0a316;
+  --lqsblog-color-month-11: #fcb42b;
+  --lqsblog-color-month-12: #ac1d10;
+
+
+	// 字体大小
+	--lqsblog-font-size-base: 14px; // 基础
+
+	// 字体粗细
+	--lqsblog-font-weight-base: 400; // 基础
+
+  /* 初始化变量 E */
+
+
+  /* 网页样式 S */
+	// 网页 - 背景色
+	--lqsblog-bg-color: var(--lqsblog-color-scheme-1);
+
+	// 网页 - 文本颜色
+	--lqsblog-text-color: var(--lqsblog-color-black-1);
+
+  // 网页 - 备注文本颜色
+	--lqsblog-desc-color: var(--lqsblog-color-black-2);
+
+	// 网页 - 字体
+	--lqsblog-font-family: "Helvetica Neue", helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+		"\5fae\8f6f\96c5\9ed1", arial, sans-serif;
+
+	// 网页 - 字体大小
+	--lqsblog-font-size: var(--lqsblog-font-size-base);
+
+	// 网页 - 字体粗细
+	--lqsblog-font-weight: var(--lqsblog-font-weight-base);
+
+  // 网页 - 字体标题加粗
+  --lqsblog-title-font-weight: 600;
+
+  // 网页 - 行高
+  --lqsblog-line-height: 1.5;
+
+	// a 链接
+	--lqsblog-a-font-size: var(--lqsblog-font-size-base);
+	--lqsblog-a-font-weight: var(--lqsblog-font-weight-base);
+	--lqsblog-a-text-color: var(--lqsblog-text-color);
+	--lqsblog-a-hover-text-color: var(--lqsblog-color-primary);
+
+  // 音乐播放器
+  --lqsblog-player-bg-color: var(--lqsblog-bg-color);
+  // 导航
+  --lqsblog-nav-color: var(--lqsblog-color-white);
+  --lqsblog-nav-hover-color: var(--lqsblog-color-primary);
+  --lqsblog-nav-drawer-bg-color: var(--lqsblog-color-white);
+  --lqsblog-nav-drawer-text-color: var(--lqsblog-color-black-2);
+  --lqsblog-nav-drawer-text-hover-color: var(--lqsblog-color-primary);
+  // 底部
+  --lqsblog-footer-color: var(--lqsblog-color-white);
+
+  // 列表item
+  --lqsblog-list-item-bg-color:  var(--lqsblog-color-white);
+
+  // 详情 box
+  --lqsblog-detail-box-bg-color:  var(--lqsblog-color-white);
+
+  // explain-card
+  --lqsblog-explain-card-bg-color:  var(--lqsblog-color-black-rgba-2);
+  --lqsblog-explain-card-text-color:  var(--lqsblog-color-white);
+
+  // links
+  --lqsblog-links-box-bg-color:  var(--lqsblog-color-white);
+  --lqsblog-links-box-desc-text-color:  var(--lqsblog-color-black-2);
+
+  // topics
+  --lqsblog-topics-item-bg-color:  var(--lqsblog-color-white);
+}

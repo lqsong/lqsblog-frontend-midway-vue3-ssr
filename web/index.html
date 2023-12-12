@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-bg-0">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" >
+  <title><!--app-title--></title>
+  <meta name="keywords" content="!--app-keywords--">
+  <meta name="description" content="!--app-description--">
+
+  <link rel="icon" href="/favicon.ico" />
+
+   <!--
+    <link rel="stylesheet" href="/js/aplayer/1.10.1/APlayer.min.css">
+   -->
+   <link rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css">
+
+   <!--
+    <link rel="stylesheet" href="/js/cherry-markdown/0.8.29/cherry-markdown.min.css">
+   -->
+   <link rel="stylesheet" href="https://unpkg.com/cherry-markdown@0.8.29/dist/cherry-markdown.min.css">
+
+  <!-- Import style -->
+  <link rel="stylesheet" href="/js/element-plus/2.4.3/index.min.css">
+
+  <!-- Import JS -->
+  <script src="/js/vue/3.3.8/vue.global.min.js"></script>
+  <script src="/js/vue-router/4.2.5/vue-router.global.min.js"></script>
+  <script src="/js/vue-demi/0.14.6/lib/index.iife.min.js"></script>
+  <script src="/js/pinia/2.1.7/pinia.iife.min.js"></script>
+  <script src="/js/element-plus/2.4.3/index.full.min.js"></script>
+  <script src="/js/qs/6.11.2/qs.min.js"></script>
+  <script src="/js/axios/1.6.2/axios.min.js"></script>
+
+
+  <!--preload-links-->
+</head>
+<body>
+<div id="app"><!--app-html--></div>
+<script type="module" src="/entry-client.ts"></script>
+<script>
+  window.__INITIAL_DATA__ = "<!--app--vue-state-->";
+  window.APlayer_config_urls = ["http://rap2api.taobao.org/app/mock/247994/pc/APlayer","http://yapi.liqingsong.cc/mock/19/pc/APlayer"];
+</script>
+
+<!--
+<script src="/js/hls.js/1.4.12/hls.min.js"></script>
+<script src="/js/aplayer/1.10.1/APlayer.min.js"></script>
+-->
+<script src="https://cdn.staticfile.org/hls.js/1.4.12/hls.min.js"></script>
+<script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
+
+
+<!-- <script src="/js/cherry-markdown/0.8.29/cherry-markdown.min.js"></script> -->
+<script src="https://unpkg.com/cherry-markdown@0.8.29/dist/cherry-markdown.min.js"></script>
+
+<!-- 百度统计 -->
+<script src="https://hm.baidu.com/hm.js?fbad933e32f60c6e1522c7313e0808f8" async defer></script>
+</body>
+</html>

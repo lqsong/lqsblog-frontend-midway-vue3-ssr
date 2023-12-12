@@ -1,0 +1,15 @@
+# 🎨 editorconfig.org
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = crlf # 控制换行类型(lf | cr | crlf)
+indent_style = space # 缩进风格（tab | space）
+indent_size = 2
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = false # 关闭末尾空格修剪
+max_line_length = off # 关闭最大行长度限制

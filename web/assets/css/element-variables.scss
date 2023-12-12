@@ -1,0 +1,43 @@
+
+/**
+ * 注意一：这里不在导入element-plus样式，因为在public/index.html中独立引入了样式，
+ *        所以不在把element-plus样式打包到应用中。
+ *
+    // 如果导入，一：只需要这里重写你需要的即可
+    @forward "element-plus/theme-chalk/src/common/var.scss" with (
+      $colors: (
+        "primary": (
+          "base": #409EFF,
+        ),
+      ),
+    );
+
+    // 如果导入，二：导入所有样式:
+    @use "element-plus/theme-chalk/src/index.scss" as *;
+*/
+
+/**
+ * 注意二：因为不导入element-plus样式，但是又想修改样式，
+ *        一：可以自己下载[element-plus](https://github.com/element-plus/element-plus)，自己构建样式，然后public/index.html中引入的样式换成自己构建的。
+ *        二：可以用 CSS 变量修改element-plus样式，如下：:root {}中的样例
+
+    :root {
+      --el-color-primary: #409eff;
+    }
+*/
+
+/* 重置 dialog */
+.custom-dialog {
+
+  .el-dialog__body {
+      padding: 20px;
+  }
+
+  &.no-title {
+    .el-dialog__header {
+      padding: 0;
+    }
+  }
+}
+
+

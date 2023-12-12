@@ -1,0 +1,304 @@
+@import './cherry-markdown.scss';
+@import './element-variables.scss';
+@import './variables.scss';
+@import './mixin.scss';
+@import 'nprogress/nprogress.css'; // progress bar style
+
+#nprogress .bar {
+    background: var(--lqsblog-color-primary) !important;
+}
+
+/* 初始化 S */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--lqsblog-font-family);
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba($black, 0);
+
+  // 小屏导航左边划出
+  &.translate-x-nav {
+    overflow: hidden;
+
+    body {
+      overflow: hidden;
+    }
+
+    // 应用根节点id
+    #app {
+      margin-left: 100px;
+    }
+
+    // 音乐播放器节点class
+    .lqsblog-player {
+      padding-left: 100px;
+      right: -100px;
+    }
+  }
+
+  /* 主题 S */
+  &.theme-bg-0 {
+    body {
+      background-image: url('@/assets/images/bg-0.jpg');
+    }
+    .lqsblog-player {
+      background-image: url('@/assets/images/bg-0.jpg');
+    }
+  }
+  &.theme-bg-1 {
+    body {
+      background-image: url('@/assets/images/bg-1.jpg');
+    }
+    .lqsblog-player {
+      background-image: url('@/assets/images/bg-1.jpg');
+    }
+  }
+  &.theme-bg-2 {
+    body {
+      background-image: url('@/assets/images/bg-2.jpg');
+    }
+    .lqsblog-player {
+      background-image: url('@/assets/images/bg-2.jpg');
+    }
+  }
+  &.theme-bg-3 {
+    body {
+      background-image: url('@/assets/images/bg-3.jpg');
+    }
+    .lqsblog-player {
+      background-image: url('@/assets/images/bg-3.jpg');
+    }
+  }
+  &.theme-bg-4 {
+    body {
+      background-image: url('@/assets/images/bg-4.jpg');
+    }
+    .lqsblog-player {
+      background-image: url('@/assets/images/bg-4.jpg');
+    }
+  }
+  &.theme-bg-5 {
+    body {
+      background-image: url('@/assets/images/bg-5.jpg');
+    }
+    .lqsblog-player {
+      background-image: url('@/assets/images/bg-5.jpg');
+    }
+  }
+
+  &.theme-bg-dark {
+    // 网页 - 背景色
+    --lqsblog-bg-color: #000;
+
+    // 网页 - 文本颜色
+	  --lqsblog-text-color: var(--lqsblog-color-black-3);
+
+    // a 链接
+    --lqsblog-a-text-color: var(--lqsblog-color-black-3);
+
+    // 列表item
+    --lqsblog-list-item-bg-color: var(--lqsblog-color-black-1);
+
+    // 详情 box
+    --lqsblog-detail-box-bg-color:  var(--lqsblog-color-black-1);
+
+    // explain-card
+    --lqsblog-explain-card-bg-color:  var(--lqsblog-color-black-1);
+
+    // links
+    --lqsblog-links-box-bg-color:  var(--lqsblog-color-black-1);
+
+    // topics
+    --lqsblog-topics-item-bg-color:  var(--lqsblog-color-black-1);
+
+  }
+  /* 主题 E */
+}
+
+body {
+  position: relative;
+  margin: 0;
+  font-family: var(--lqsblog-font-family);
+  font-size: var(--lqsblog-font-size);
+  font-weight: var(--lqsblog-font-weight);
+  line-height: var(--lqsblog-line-height);
+  color: var(--lqsblog-text-color);
+  text-align: left;
+  background-color: var(--lqsblog-bg-color);
+  background-position: center top;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: background-image 1s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: url('@/assets/images/bg-fixed.png') repeat;
+  }
+}
+
+#app {
+  transition: 0.3s;
+}
+
+[tabindex="-1"]:focus:not(:focus-visible) {
+  outline: 0 !important;
+}
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
+dt {
+  font-weight: var(--lqsblog-title-font-weight);
+}
+
+dd {
+  margin-bottom: .5rem;
+  margin-left: 0;
+}
+
+blockquote {
+  margin: 0 0 1rem;
+}
+
+b,
+strong {
+  font-weight: var(--lqsblog-title-font-weight);
+}
+
+
+a {
+    color: var(--lqsblog-a-text-color);
+    text-decoration: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    transition: color .3s;
+}
+a:active,
+a:hover {
+    text-decoration: none;
+    outline: 0;
+    color: var(--lqsblog-a-hover-text-color);
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+svg {
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* 初始化 E */
+
+/* 自定义样式 S */
+.container,
+.container-fluid{
+  width: 100%;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/*
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+*/
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 860px;
+  }
+}
+
+.row {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -30px;
+  margin-left: -30px;
+  &._clearing {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.flex-wrap-wrap {
+  flex-wrap: wrap;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ellipsis-l2 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  line-break: anywhere;
+  -webkit-box-orient: vertical;
+}
+
+/* margin padding */
+@each $orientation in m,p {
+  $space: margin;
+	@if $orientation == m {
+		$space: margin;
+	} @else {
+		$space: padding;
+	}
+
+  @for $i from 0 through 16 {
+    @each $direction in t, r, b, l, x, y {
+      .lqsblog-#{$orientation}#{$direction}-#{$i} {
+				@include  get-mp-styles($direction,$i,$space);
+			}
+    }
+  }
+}
