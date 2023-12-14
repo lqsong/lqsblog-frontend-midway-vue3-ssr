@@ -166,17 +166,23 @@ const errorHandler = (error: any) => {
       }
     }
   } else if (message === 'canceled') {
-    console.log('canceled', error);
+    if (typeof window === 'object') {
+      console.log('canceled', error);
+    }
   } else if (response && response.status) {
     const errorText = serverCodeMessage[response.status] || response.statusText;
     const { status, request } = response;
-    // alert(`请求错误 ${status}: ${request.responseURL}\n${errorText}`);
-    ElMessage.warning(
-      `请求错误 ${status}: ${request.responseURL}\n${errorText}`
-    );
+    if (typeof window === 'object') {
+      // alert(`请求错误 ${status}: ${request.responseURL}\n${errorText}`);
+      ElMessage.warning(
+        `请求错误 ${status}: ${request.responseURL}\n${errorText}`
+      );
+    }
   } else if (!response) {
-    // alert("网络异常：您的网络发生异常，无法连接服务器");
-    ElMessage.warning('网络异常：您的网络发生异常，无法连接服务器');
+    if (typeof window === 'object') {
+      // alert("网络异常：您的网络发生异常，无法连接服务器");
+      ElMessage.warning('网络异常：您的网络发生异常，无法连接服务器');
+    }
   }
 
   return Promise.reject(error);
